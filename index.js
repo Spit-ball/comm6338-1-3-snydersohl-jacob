@@ -1,7 +1,5 @@
 // Your code here
 var trueOrFalseString = 'True or False: '
-var userAnswer = 0
-var score = 0
 
 var questionsArr= [
     { question: trueOrFalseString + "Jump rope is a form of cardiovascular exercise.", answer: true},         
@@ -14,15 +12,14 @@ var questionsArr= [
 console.log(questionsArr)
 
 function runQuiz() {
+    var score = 0
     for(var i=0; i < questionsArr.length; i++){
-
-        userAnswer = confirm(questionsArr[i].question)
+        var userAnswer = confirm(questionsArr[i].question)
             if(userAnswer == questionsArr[i].answer) {
-                score += 20
-            } else {
-                score -+ 20
-            }
+                score ++
         }
-        alert('You scored a ' + (score / 100) * 100 + " out of 100!")
-        location.reload(true)
+    }
+    var percent = (score / questionsArr.length) * 100
+    var roundedPercent = Math.round(percent)
+    alert('You scored a ' + roundedPercent + " out of 100%!")
     }
